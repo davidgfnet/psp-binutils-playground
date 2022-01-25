@@ -36,24 +36,24 @@ for com in itertools.product(["0", "s", "c", "-s"], repeat=3):
 
 
 # Exhaustive register naming test
-for mtx in range(8):
-  for col in range(4):
-    for row in range(4):
+for mtx in range(9):
+  for col in range(5):
+    for row in range(5):
       TESTS.append("vadd.s S%u%u%u.s, S000.s, S000.s" % (mtx, col, row))
 
 for mode in "ptq":
-  for mtx in range(8):
-    for col in range(4):
-      for row in range(4):
-        for t in "CR":
+  for mtx in range(9):
+    for col in range(5):
+      for row in range(5):
+        for t in "CRcr":
           TESTS.append("vadd.%s %s%u%u%u.%s, %s000.%s, %s000.%s" % (
                        mode, t, mtx, col, row, mode, t, mode, t, mode))
 
 for mode in "ptq":
-  for mtx in range(8):
-    for col in range(4):
-      for row in range(4):
-        for t in "ME":
+  for mtx in range(9):
+    for col in range(5):
+      for row in range(5):
+        for t in "MEme":
           TESTS.append("vmmov.%s %s%u%u%u.%s, %s100.%s" % (
                        mode, t, mtx, col, row, mode, t, mode))
           # vmmul is a bit special with register VS

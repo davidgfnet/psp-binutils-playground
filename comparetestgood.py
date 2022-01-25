@@ -333,11 +333,11 @@ for mode in "sptq":
 
 for mode in "sptq":
   for regs, regt in genregs2(mode):
-    for ct in ["FL", "EQ", "NE", "GT"]:
+    for ct in ["FL", "EQ", "NE", "GT", "fl", "eq", "ne", "gt"]:
       VTESTS.append("vcmp.%s %s, %s, %s" % (mode, ct, regs, regt))
-    for ct in ["NN", "NZ"]:
+    for ct in ["NN", "NZ", "nn", "nz"]:
       VTESTS.append("vcmp.%s %s, %s" % (mode, ct, regs))
-    for ct in ["FL", "TR"]:
+    for ct in ["FL", "TR", "fl", "tr"]:
       VTESTS.append("vcmp.%s %s" % (mode, ct))
 
 # Immediate insts
